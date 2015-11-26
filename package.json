@@ -1,11 +1,12 @@
 {
-  "name": "hubtags-simple",
+  "name": "feather",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
     "start": "webpack-dev-server",
-    "build": "webpack"
+    "build": "webpack",
+    "deploy": "surge -p public -d feather.surge.sh"
   },
   "author": "Henrik Joreteg <henrik@joreteg.com>",
   "license": "MIT",
@@ -18,6 +19,7 @@
     "hjs-webpack": "^5.0.1",
     "jsx-virtual-hyperscript-loader": "0.0.1",
     "local-links": "^1.4.0",
+    "surge": "^0.17.3",
     "vdom-serialized-patch": "^1.0.2",
     "vdom-to-html": "^2.2.0",
     "vdom-virtualize": "^1.0.1",

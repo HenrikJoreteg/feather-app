@@ -1,15 +1,7 @@
 {
   "name": "feather",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
-  "scripts": {
-    "start": "webpack-dev-server",
-    "build": "webpack",
-    "deploy": "surge -p public -d feather.surge.sh"
-  },
   "author": "Henrik Joreteg <henrik@joreteg.com>",
-  "license": "MIT",
   "dependencies": {
     "babel": "^6.1.18",
     "babel-loader": "^6.2.0",
@@ -27,5 +19,13 @@
     "webpack": "^1.12.9",
     "webpack-dev-server": "^1.14.0",
     "worker-loader": "^0.7.0"
+  },
+  "license": "MIT",
+  "main": "index.js",
+  "scripts": {
+    "build": "webpack",
+    "deploy": "surge -p public -d feather.surge.sh",
+    "start": "webpack-dev-server",
+    "yolo": "npm run build && npm run deploy"
   }
 }

@@ -3,10 +3,10 @@ import virtualize from 'vdom-virtualize'
 import toJson from 'vdom-as-json/toJson'
 import applyPatch from 'vdom-serialized-patch/patch'
 import { getLocalPathname } from 'local-links'
+import './styles/main.styl'
 
 const worker = new Thread()
 const rootNode = document.body.firstChild
-
 const { history, location, requestAnimationFrame } = window
 
 worker.onmessage = ({data}) => {
@@ -36,6 +36,15 @@ document.body.addEventListener('click', (event) => {
   if (click) {
     event.preventDefault()
     worker.postMessage(click)
+  }
+})
+
+document.body.addEventListener('scroll', (event) => {
+  const scroll = event.target['data-scroll']
+
+  if (scroll) {
+    event.preventDefault()
+    worker.postMessage(scroll)
   }
 })
 

@@ -25,9 +25,17 @@ window.addEventListener('popstate', () => {
 
 document.body.addEventListener('click', (event) => {
   const pathname = getLocalPathname(event)
+  const click = event.target['data-click']
+
   if (pathname) {
     event.preventDefault()
     worker.postMessage({type: 'setUrl', payload: pathname})
+  }
+
+  // post click actions back to worker
+  if (click) {
+    event.preventDefault()
+    worker.postMessage(click)
   }
 })
 

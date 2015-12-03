@@ -1,3 +1,4 @@
+/*eslint no-unused-vars: [2, {"varsIgnorePattern": "h"}]*/
 import h from 'virtual-dom/h'
 import page1 from './components/page1'
 import page2 from './components/page2'
@@ -7,9 +8,8 @@ export default (state) => {
   let page
 
   if (url === '/one') {
-    page = page1()
+    page = page1(state)
   } else if (url === '/two') {
-    console.log('render page 2')
     page = page2()
   } else {
     page = h('h1', 'home')
@@ -23,7 +23,6 @@ export default (state) => {
         <li><a href='/two'>two</a></li>
       </ul>
       {page}
-      <span>render #: {state.count}</span>
     </main>
   )
 }

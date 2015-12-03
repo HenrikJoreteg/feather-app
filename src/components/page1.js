@@ -1,10 +1,13 @@
+/*eslint no-unused-vars: [2, {"varsIgnorePattern": "h"}]*/
 import h from 'virtual-dom/h'
 
-export default (state) => {
+export default ({count}) => {
   return (
     <div>
       <h1>Page one</h1>
-      <p>Hi</p>
+      <button data-click={{type: 'decrement'}}> - </button>
+      <span>{count}</span>
+      <button data-click={{type: 'increment'}}> + </button>
     </div>
   )
 }

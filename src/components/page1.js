@@ -6,7 +6,7 @@ export default ({count}) => {
     <div>
       <h1>Page one</h1>
       <button data-click={{type: 'decrement'}}> - </button>
-      <span>{count}</span>
+      <span> {count} </span>
       <button data-click={{type: 'increment'}}> + </button>
     </div>
   )

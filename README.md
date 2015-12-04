@@ -10,6 +10,10 @@ Feather is a proof of concept app demonstrating the following in 8.5kb of min/gz
 - Insanely light "router" (feels silly to even call it that). The current URL is simply treated as a part of application state. It then gets "rendered" to the URL bar with `history.pushState` if it's different than current.
 - Styles are pre-processed and live-reloaded during development without need for browser plugins.
 - `npm run build && npm run deploy` puts a fully static site with clean URLs on the Internet using [Surge.sh](https://surge.sh).
-- Main ui thread has only three responsibilities:
-	- listening for and sending serializable actions back to the worker (this includes `popstate` events) for routing
+- Main UI thread has only three responsibilities:
 	- sending "state of the world" to worker on start. This includes parsing real DOM into a virtual dom so the worker has a starting point for calculating diffs and sending in the current URL.
+	- listening for and sending serializable actions back to the worker (this includes `popstate` events) for routing.
+	- applying DOM patches when received from worker
+
+This was created in part for this talk: https://slides.joreteg.com/dotjs
+	

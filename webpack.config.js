@@ -13,8 +13,7 @@ module.exports = getConfig({
     }
 
     return {
-      'one.html': render({url: '/one', count: 0}),
-      'two.html': render({url: '/two', count: 0}),
+      'about.html': render({url: '/about', count: 0}),
       'index.html': render({url: '/', count: 0})
     }
   }

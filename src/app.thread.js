@@ -2,9 +2,9 @@
 import diff from 'virtual-dom/diff'
 import serializePatch from 'vdom-serialized-patch/serialize'
 import fromJson from 'vdom-as-json/fromJson'
-import ui from './ui'
-
+import view from './view'
 let tree
+
 const state = {
   count: 0,
   url: '/',
@@ -13,8 +13,6 @@ const state = {
 
 self.onmessage = ({data}) => {
   const { type, payload } = data
-
-  console.log('event:', data)
 
   switch (type) {
     case 'start': {
@@ -38,7 +36,7 @@ self.onmessage = ({data}) => {
 
   state.renderCount++
 
-  const newTree = ui(state)
+  const newTree = view(state)
   const patches = diff(tree, newTree)
 
   // cache for next time

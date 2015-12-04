@@ -1,11 +1,11 @@
-import Thread from './main.thread'
+import AppThread from './app.thread'
 import virtualize from 'vdom-virtualize'
 import toJson from 'vdom-as-json/toJson'
 import applyPatch from 'vdom-serialized-patch/patch'
 import { getLocalPathname } from 'local-links'
 import './styles/main.styl'
 
-const worker = new Thread()
+const worker = new AppThread()
 const rootNode = document.body.firstChild
 const { history, location, requestAnimationFrame } = window
 

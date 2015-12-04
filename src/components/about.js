@@ -4,8 +4,7 @@ import h from 'virtual-dom/h'
 export default () => {
   return (
     <div>
-      <h1>Page two</h1>
-      <p>This is a things</p>
+      <p><a href='https://github.com/HenrikJoreteg/feather-app'>read more on github</a></p>
     </div>
   )
 }

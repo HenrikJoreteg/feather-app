@@ -1,15 +1,15 @@
 require('babel-register')
 var getConfig = require('hjs-webpack')
 var toHtml = require('vdom-to-html')
-var appView = require('./src/view').default
+var app = require('./src/views/app').default
 
 module.exports = getConfig({
-  in: 'src/root.js',
+  in: 'src/main.js',
   out: 'public',
   clearBeforeBuild: true,
   html: function (context) {
     function render (state) {
-      return context.defaultTemplate({html: toHtml(appView(state))})
+      return context.defaultTemplate({html: toHtml(app(state))})
     }
 
     return {

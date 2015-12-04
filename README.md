@@ -2,6 +2,8 @@
 
 Feather is a proof of concept app demonstrating the following in 8.5kb of min/gzipped code.
 
+Visit http://feather.surge.sh, open the network panel and see for yourself.
+
 - Initial render of clientside components to static HTML at build time. So the browser gets "pre-rendered" HTML.
 - JS "taking over" once loaded in the browser.
 - App state, logic, and virtual DOM rendering and diffing happens outside of main UI thread using a WebWorker.
@@ -15,5 +17,11 @@ Feather is a proof of concept app demonstrating the following in 8.5kb of min/gz
 	- listening for and sending serializable actions back to the worker (this includes `popstate` events) for routing.
 	- applying DOM patches when received from worker
 
-This was created in part for this talk: https://slides.joreteg.com/dotjs
-	
+# credits
+
+Huge thanks to [@NolanLawson](http://twitter.com/NolanLawson) for his pioneering work on using WebWorkers for DOM diffing. Read his incredible post here: http://www.pocketjavascript.com/blog/2015/11/23/introducing-pokedex-org
+
+Very little of what enables this was created by me. I'm just pulling together awesome modules like: `webpack`, `virtual-dom`, `babel`, `vdom-serialized-patch`, `vdom-to-html`, `vdom-virtualize` to name a few.
+
+Created by [@HenrikJoreteg](http://twitter.com/henrikjoreteg).
+

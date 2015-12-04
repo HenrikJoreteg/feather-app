@@ -1,7 +1,7 @@
 /*eslint no-unused-vars: [2, {"varsIgnorePattern": "h"}]*/
 import h from 'virtual-dom/h'
-import home from './components/home'
-import about from './components/about'
+import home from './home'
+import about from './about'
 
 export default (state) => {
   const { url } = state

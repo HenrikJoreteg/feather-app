@@ -1,6 +1,3 @@
-/*eslint no-unused-vars: [2, {"varsIgnorePattern": "h"}]*/
-import h from 'virtual-dom/h'
-
 export default ({count}) => {
   return (
     <div>

@@ -1,5 +1,3 @@
-/*eslint no-unused-vars: [2, {"varsIgnorePattern": "h"}]*/
-import h from 'virtual-dom/h'
 import home from './home'
 import about from './about'
 

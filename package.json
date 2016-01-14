@@ -36,7 +36,7 @@
   "license": "MIT",
   "main": "index.js",
   "scripts": {
-    "build": "webpack",
+    "build": "NODE_ENV=production webpack",
     "deploy": "surge -p public -d feather.surge.sh",
     "lint": "standard",
     "start": "webpack-dev-server",

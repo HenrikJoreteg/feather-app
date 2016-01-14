@@ -1,9 +1,10 @@
 require('babel-register')
+var webpack = require('webpack')
 var getConfig = require('hjs-webpack')
 var toHtml = require('vdom-to-html')
 var app = require('./src/views/app').default
 
-module.exports = getConfig({
+var config = getConfig({
   in: 'src/main.js',
   out: 'public',
   clearBeforeBuild: true,
@@ -18,3 +19,11 @@ module.exports = getConfig({
     }
   }
 })
+
+if (process.env.NODE_ENV === 'production') {
+  config.plugins.push(
+    new webpack.NormalModuleReplacementPlugin(/^ud$/, __dirname + '/src/ud.production.js')
+  )
+}
+
+module.exports = config

@@ -3,15 +3,7 @@ import diff from 'virtual-dom/diff'
 import serializePatch from 'vdom-serialized-patch/serialize'
 import fromJson from 'vdom-as-json/fromJson'
 import app from './views/app'
-let currentVDom
-let renderCount = 0
-
-// our entire application state
-// as a plain object
-const state = {
-  count: 0,
-  url: '/'
-}
+let currentVDom, globalState
 
 // messages from the main thread come
 // in here
@@ -25,28 +17,29 @@ self.onmessage = ({data}) => {
   switch (type) {
     case 'start': {
       currentVDom = fromJson(payload.virtualDom)
-      state.url = payload.url
+      globalState = payload.state
+      globalState.url = payload.url
       break
     }
     case 'setUrl': {
-      state.url = payload
+      globalState.url = payload
       break
     }
     case 'increment': {
-      state.count++
+      globalState.count++
       break
     }
     case 'decrement': {
-      state.count--
+      globalState.count--
       break
     }
   }
 
   // just for fun
-  console.log('render count:', ++renderCount)
+  console.log('render count:', ++globalState.renderCount)
 
   // our entire app in one line:
-  const newVDom = app(state)
+  const newVDom = app(globalState)
 
   // do the diff
   const patches = diff(currentVDom, newVDom)
@@ -56,5 +49,5 @@ self.onmessage = ({data}) => {
   currentVDom = newVDom
 
   // send patches and current url back to the main thread
-  self.postMessage({url: state.url, payload: serializePatch(patches)})
+  self.postMessage({url: globalState.url, payload: serializePatch(patches), state: globalState})
 }

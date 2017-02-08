@@ -23,6 +23,7 @@
     "stylus": "^0.54.5",
     "stylus-loader": "^2.4.0",
     "surge": "^0.17.3",
+    "ud": "^3.0.0",
     "url-loader": "^0.5.7",
     "vdom-as-json": "^1.0.8",
     "vdom-serialized-patch": "^1.0.2",
@@ -36,7 +37,7 @@
   "license": "MIT",
   "main": "index.js",
   "scripts": {
-    "build": "webpack",
+    "build": "NODE_ENV=production webpack",
     "deploy": "surge -p public -d feather.surge.sh",
     "lint": "standard",
     "start": "webpack-dev-server",
